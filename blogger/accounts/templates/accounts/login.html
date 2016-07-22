@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <!--  <link rel="stylesheet" href="/css/accounts/index.css"> -->
+</head>
+<body>
+    <div class = "content">
+
+        <div class = "panel">
+        <form class = "form_login" method = "post" action = "/accounts/deal_form/">
+	    {% csrf_token %}
+            <div class = "group">
+                <label>账号</label>
+                <input placeholder="请输入账号" name = "username">
+            </div>
+            <div class = "group">
+                <label>密码</label>
+                <input placeholder="请输入密码" type="password" name = "password">
+            </div>
+
+            <div class = "login">
+                <button type = "submit">登录</button>
+            </div>
+        </form>
+        </div>
+
+	<form class = "form_register" method = "post" action = "/accounts/register/">
+        {% csrf_token %}
+        <div class = "register">
+            <button>注册新账号</button>
+        </div>
+        </form>
+	
+
+    </div>
+</body>
+</html>
+

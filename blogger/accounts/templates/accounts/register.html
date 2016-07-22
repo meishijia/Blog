@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!--<link rel="stylesheet" href="/css/accounts/register">-->
+</head>
+<body>
+    <p>感谢使用</p>
+    <form class="info" method="post" action="/accounts/deal_register/">
+        {% csrf_token %}
+        <div class="group">
+            <label>用户名</label>
+            <input placeholder="取一个你喜欢的且独一无二的名字" name="username">
+        </div>
+        <div class="group">
+            <label>邮箱</label>
+            <input placeholder="输入邮箱" name="email">
+        </div>
+        <div class="group">
+            <label>密码</label>
+            <input placeholder="请输入密码" type = "password" name="password">
+        </div>
+        <button type="submit">注册</button>
+        <button type="reset">重置</button>
+    </form>
+</body>
+</html>
+

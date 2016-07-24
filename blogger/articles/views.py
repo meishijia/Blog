@@ -7,6 +7,7 @@ from articles.models import Article
 from comments.models import Comment
 
 import traceback
+import datetime
 
 @login_required
 def index(request):
@@ -18,9 +19,9 @@ def index(request):
     user = User.objects.filter(username = username)
     articles = Article.objects.filter(author = user)
     for article in articles:
-        cmments = Comment.object.filter(article = article)
-        date[article] = comments
-    return render(request,'articles/index.html',{'data':data,'user':user,'articles':articles})
+        comments = Comment.objects.filter(article = article)
+        data[article] = comments
+    return render(request,'articles/article_list.html',{'data':data,'user':user,'articles':articles})
 
 def add_article(request):
     return render(request,'articles/add_article.html')
@@ -42,7 +43,11 @@ def deal_article(request):
         print traceback.print_exc()
     return HttpResponseRedirect("/articles/index/")
 
-
+def show_article(request):
+    article_id = request.GET["id"]
+    article = Article.objects.get(id = article_id)
+    comments = Comment.objects.filter(article = article)
+    return render(request,"articles/show_article.html",{"article":article,"comments":comments})
 
 # Create your views here.
 

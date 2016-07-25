@@ -11,17 +11,11 @@ import datetime
 
 @login_required
 def index(request):
-    try:    
-        username = request.session["username"]
-    except:
-        username = ""
     data = {}
-    user = User.objects.filter(username = username)
-    articles = Article.objects.filter(author = user)
+    articles = Article.objects.all()
     for article in articles:
         comments = Comment.objects.filter(article = article)
-        data[article] = comments
-    return render(request,'articles/article_list.html',{'data':data,'user':user,'articles':articles})
+    return render(request,'articles/article_list.html',{"articles":articles,"comments":comments})
 
 def add_article(request):
     return render(request,'articles/add_article.html')

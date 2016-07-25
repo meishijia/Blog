@@ -1,0 +1,24 @@
+{% extends "manager/base.html" %}
+
+{% block title %}文章列表{% endblock %}
+
+{% block content %}
+
+
+{% for article in aticles %}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h2>
+				{{article.title}}
+				<small>{{ article.time_stamp }}</small>
+			</h2>
+			<p>
+			{{ article.content | truncatewords_html:30 }}
+			</p>
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}

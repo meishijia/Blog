@@ -9,7 +9,7 @@
 		<div class="span12">
 			<div class="page-header">
 				<h1>
-					页标题范例 <small>此处编写页标题</small>
+					相思已是不曾闲
 				</h1>
 			</div>
 		</div>
@@ -21,10 +21,10 @@
 					<a href="#">首页</a>
 				</li>
 				<li>
-					<a href="#">资料</a>
+					<a href="/article/about_me/">About Me~</a>
 				</li>
 				<li class="disabled">
-					<a href="#">信息</a>
+					<a href="/article/contact_me">Contact_Me</a>
 				</li>
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
@@ -55,7 +55,7 @@
 				<a href="/articles/show_article/?id={{article.id}}">{{article.title}}</a>
 			</h2>
 			<p>
-				{{article.content}}
+				{{article.content | truncatewords_html:20 }}
 			</p>
 			{% endfor %}
 		</div>
@@ -67,7 +67,7 @@
 				<li class="active">
 					<a href="#">首页</a>
 				</li>
-				<lii>
+				<li>
 					<a href="#">库</a>
 				</li>
 				<li>

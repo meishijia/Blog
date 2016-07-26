@@ -9,14 +9,13 @@ from comments.models import Comment
 import traceback
 import datetime
 
-@login_required
 def index(request):
-    data = {}
     articles = Article.objects.all()
     for article in articles:
         comments = Comment.objects.filter(article = article)
     return render(request,'articles/article_list.html',{"articles":articles,"comments":comments})
 
+@login_required
 def add_article(request):
     return render(request,'articles/add_article.html')
 

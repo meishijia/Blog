@@ -8,12 +8,15 @@ from django.contrib.auth.models import User
 import datetime
 
 def index(request):
-    return render(request,"/manager/index.html")
+    return render(request,"manager/index.html")
 
 def article_list(request):
-    return render(request,"/manager/article_list.html")
-
+    articles = Article.objects.all()
+    return render(request,"manager/article_list.html",{"articles":articles})
 def add_article(request):
+    return render(request,"manager.add_article.html")
+
+def deal_add_article(request):
     title = request.POST["title"]
     content = request.POST["content"]
     time_stamp = datetime.datetime.now().strftime('%Y-%m-%d')

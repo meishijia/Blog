@@ -1,0 +1,52 @@
+{% extends "manager/base.html" %}
+
+{% block title %}管理{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row-fluid" style="margin-bottom:15px">
+		<div class="span8">
+			<h2>{{ article.title }}</h2>
+			<p>	{{ article.content }}</p>
+		</div>
+		<div class="span4" style="padding-top:10px">
+			<ul class="nav nav-list">
+				<li class="active">
+					<a href="/manager/article_list/">全部文章</a>
+				</li>
+				<li>
+				<a href="/manager/mod_article/?id={{article.id}}">修改文章</a>
+				</li>
+				<li>
+					<a href="/manager/add_article/">添加文章</a>
+				</li>
+				<li>
+				<a href="/manager/del_article/?id={{article.id}}">删除文章</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<h3>评论</h3>
+	<hr/>
+	{% for comment in comments %}
+	<div class="row-fluid">
+		<div class="span12">
+			<h3 style="display:inline">
+				{{comment.user.username}}
+			</h3>
+			<p>
+				{{comment.content}}
+			</p>
+			<form method="post" action="/manager/del_comment/">
+				{% csrf_token %}
+				<input type="hidden" value="{{article.id}}" name= "id"/>
+				<input type="hidden" value={{comment.id}} name="comment_id" />
+				<button class="btn" type="submit">删除</button>
+			</form>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+
+{% endblock%}

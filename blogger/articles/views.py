@@ -15,11 +15,11 @@ def index(request):
         comments = Comment.objects.filter(article = article)
     return render(request,'articles/article_list.html',{"articles":articles,"comments":comments})
 
-@login_required
-def add_article(request):
-    return render(request,'articles/add_article.html')
+#@login_required
+#def add_article(request):
+#    return render(request,'articles/add_article.html')
 
-@login_required
+'''@login_required
 def deal_article(request):
     try:
         username = request.session["username"]
@@ -35,7 +35,7 @@ def deal_article(request):
     except:
         print traceback.print_exc()
     return HttpResponseRedirect("/articles/index/")
-
+'''
 def show_article(request):
     article_id = request.GET["id"]
     article = Article.objects.get(id = article_id)

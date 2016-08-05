@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^accounts/',include('accounts.urls')),
     url(r'^manager/',include('manager.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     ]+static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)

@@ -11,4 +11,6 @@ urlpatterns = [
 	url(r'^del_article/',views.del_article),
 	url(r'^deal_mod_article/',views.deal_mod_article),
 	url(r'^del_comment/',views.del_comment),
-	]
+    url(r'^manage_accounts/',views.manage_accounts),
+	url(r'^deal_manage_accounts/',views.deal_manage_accounts),
+        ]

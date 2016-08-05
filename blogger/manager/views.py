@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 import datetime
 
+
 def index(request):
     return render(request,"manager/index.html")
 
@@ -14,8 +15,8 @@ def article_list(request):
     articles = Article.objects.all()
     return render(request,"manager/article_list.html",{"articles":articles})
 
-def add_article(request):
-    return render(request,"manager/add_article.html")
+def add_article(request): 
+    return render(request,"manager/add_article.html",{})
 
 def deal_add_article(request):
     title = request.POST["title"]
@@ -63,5 +64,16 @@ def del_comment(request):
     id = str(comment.article.id)
     comment.delete()
     return HttpResponseRedirect("/manager/manage_article/?id="+id)
+
+def manage_accounts(request):
+	users = User.objects.all()
+	return render(request,"manager/manage_accounts.html",{"users":users})
+def deal_manage_accounts(request):
+    user_id = request.POST["user_id"]
+    user = User.objects.get(id = user_id)
+    user.delete()
+    return HttpResponseRedirect("/manager/manage_accounts/")
+    
+
 
 # Create your views here.

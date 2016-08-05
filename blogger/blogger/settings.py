@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'comments',
     'accounts',
     'manager',
+    'ckeditor',
   
 ]
 
@@ -120,9 +121,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+CKEDITOR_JQUERY_URL = '//libs.useso.com/js/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, "media")
+
+# ckeditor

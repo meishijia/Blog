@@ -86,6 +86,17 @@ def deal_manage_accounts(request):
     user.delete()
     return HttpResponseRedirect("/manager/manage_accounts/")
     
-
+@permission_required('django.contrib.auth.can_manage')
+def search(request):
+    articles=[]
+    keywords = request.POST["keywords"]
+    print keywords
+    articles = Article.objects.filter(title__contains=keywords)
+    articles = Article.objects.filter(content__contains=keywords)
+    if articles:
+        render(request,"manager/article_list.html",{"articles":articles})
+    else:
+        message = 'NO RESULTS.TRY AGAIN'
+        HttpResponse(message)
 
 # Create your views here.

@@ -3,18 +3,67 @@
 <head>
     <meta charset="UTF-8">
 	<title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/media/css/bootstrap.css">
-    <link rel="stylesheet" href="/media/css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="/media/css/bootstrap-responsive.min.css">
-	<link rel="stylesheet" href="/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
 	{% block css %}{% endblock %}
 
-	<script src="/media/js/bootstrap.js"></script>
-	<script src="/media/js/bootstrap.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
     
 </head>
 <body>
-	{% block content %}{% endblock %}
+	<div class="container-fluid">
+		<div class="span12" >
+    		<ul class="nav nav-pills">
+     			<li class="active">
+        			<a href="/manager/index/">管理首页</a>
+      			</li>
+      			<li><a href="/manager/article_list/">文章列表</a></li>
+    		</ul>
+		</div>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span8">
+					{% block content %}{% endblock %}
+				</div>
+				<div class="span4">
+					<ul class="nav nav-list">
+					<li class="nav-header">
+						操作
+					</li>
+					<li class="active">
+						<a href="/manager/add_article/">添加博文</a>
+					</li>
+					<li>
+						<a href="/manager/article_list/">管理文章和评论</a>
+					</li>
+					<li>
+						<a href="/manager/manage_accounts/">管理账户</a>
+					</li>
+					<li>
+						<a href="/accounts/index/">跳转到博客前台</a>
+					</li>
+					<li>
+						<a href="/accounts/logout/">登出</a>
+					</li>
+					</ul>
+					<hr/>
+    				<form class="form-search" method="post" action="/manager/search/">
+						{% csrf_token%}
+						<label for="search">查询文章</label>
+      					<input type="text" class="input-medium search-query" name="keywords" id="search">
+      					<button type="submit" class="btn">Search</button>
+    				</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 

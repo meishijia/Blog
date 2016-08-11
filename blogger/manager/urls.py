@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^del_comment/',views.del_comment),
     url(r'^manage_accounts/',views.manage_accounts),
 	url(r'^deal_manage_accounts/',views.deal_manage_accounts),
+	url(r'^search',views.search),
         ]

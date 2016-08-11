@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span12" style="width=200px;margin-left:330px;margin-top:200px">
+		<div class="span12" style="width:300px;margin-left:330px;margin-top:200px">
 			<form class="form-horizontal" method="post" action="/accounts/deal_form/">
 				{% csrf_token %}
 				<div class="control-group">
@@ -28,14 +28,9 @@
 				<div class="control-group">
 					<div class="controls">
 						<a href="/accounts/register" class="btn">注册</a>
-						<!--<button class="btn" onclick="javascript:window.location="/accounts/register/">注册</button>-->
 					</div>
 				</div>
-			<!--</form>
-			<form method="post" action="/accounts/register/">
-				<div class="control-group">
-					<div class="controls">
-						<button type="submit" class="btn">注册</button>-->
+			</form>
 		</div>
 	</div>
 </div>

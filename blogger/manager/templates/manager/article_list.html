@@ -14,14 +14,13 @@
 			</h2>
 				<small>{{ article.time_stamp }}</small>
 			<p>
-			{{ article.content | truncatewords_html:30 }}
+			{{ article.content | truncatewords_html:30 | safe }}
 			</p>
 			<hr/>
 		</div>
 	</div>
 </div>
 {% endfor %}
-	<div class="pos"> <a type="button" class="btn" href="/manager/index/">管理首页</a></div>
 </div>
 	
 {% endblock %}

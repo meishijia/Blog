@@ -2,11 +2,31 @@
 
 {% block title %}登录 {% endblock %}
 
+{% block cssstyle %}
+<style type="text/css">
+#logindev{
+  position: absolute;
+  top: 35%;
+  left:40%;
+}
+input[type="password"]:focus,
+input[type="text"]:focus {
+  outline:0;
+  border-color:rgba(28,120,135,0.8);
+  outline: thin dotted \9;
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(28, 120, 135, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(28, 120, 135, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(28, 120, 135, 0.6);
+
+}
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12" style="width:300px;margin-left:330px;margin-top:200px">
-			<form class="form-horizontal" method="post" action="/accounts/deal_form/">
+<div class="container">
+	<div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" id="logindev">
+			<form class="form-horizontail" method="post" action="/accounts/deal_form/">
 				{% csrf_token %}
 				<div class="control-group">
 					 <label class="control-label" for="inputUsername">用户名</label>
@@ -20,18 +40,19 @@
 						<input id="inputPassword" type="password" name="password"/>
 					</div>
 				</div>
-				<div class="control-group">
+				<div style="padding-left:10px padding-right:10px height:auto">
+				<div class="control-group pull-left">
 					<div class="controls">
 						 <button type="submit" class="btn" action="/accounts/login/">登陆</button>
 					</div>
 				</div>
-				<div class="control-group">
+				<div class="control-group pull-right">
 					<div class="controls">
 						<a href="/accounts/register" class="btn">注册</a>
 					</div>
 				</div>
+				</div>
 			</form>
-		</div>
 	</div>
 </div>
 {% endblock %}

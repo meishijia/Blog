@@ -7,6 +7,8 @@ from comments.models import Comment
 from django.contrib.auth.models import User
 
 import datetime
+import re
+#from django.contrib.postgres.search import search
 
 @permission_required('django.contrib.auth.can_manage')
 def index(request):
@@ -91,12 +93,13 @@ def search(request):
     articles=[]
     keywords = request.POST["keywords"]
     print keywords
-    articles = Article.objects.filter(title__contains=keywords)
-    articles = Article.objects.filter(content__contains=keywords)
+
+
+    
     if articles:
-        render(request,"manager/article_list.html",{"articles":articles})
+        return render(request,"manager/article_list.html",{"articles":articles})
     else:
         message = 'NO RESULTS.TRY AGAIN'
-        HttpResponse(message)
+        return HttpResponse(message)
 
 # Create your views here.

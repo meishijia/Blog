@@ -37,7 +37,7 @@
 			</h2>
 			<small>{{article.time_stamp}}</small>
 			<p>
-				{{article.content | truncatewords_html:20 }}
+				{{article.content | truncatewords_html:20 | safe }}
 			</p>
 			{% endfor %}
 		</div>

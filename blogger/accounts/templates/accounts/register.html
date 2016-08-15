@@ -2,15 +2,30 @@
 
 {% block title %}注册{% endblock %}
 
+{% block cssstyle%}
+<style tyle="text/css">
+#msj-center{
+  position:absolute;
+  top:20%;
+  left:30%;
+}
+#msj-reset{
+  width:100px;
+}
+</style>
+
+{% endblock %}
+
+
 {% block content %}
-<div class="container-fluid">
-	<div class="row-fluid">
+<div class="container">
 		<div class="span12">
 			<h3 style="text-align:center">
 				欢迎来到我的博客~~~
 			</h3>
-			<div style="width=200px;margin-left:330px;margin-top:100px">
-			<form class="form-horizontal">
+		</div>
+		<div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2" id="msj-center">
+			<form class="form-horizontal" method="post" action="/accounts/deal_register/">
 				{% csrf_token %}
 				<div class="control-group">
 					 <label class="control-label" for="inputUsername">用户名</label>
@@ -32,14 +47,16 @@
 				</div>
 				<div class="control-group">
 					<div class="controls">
-						 <button type="submit" class="btn" action="/accounts/deal_register/">注册</button>
-						 <button type="reset"  class="btn">重置</button>
+						<button type="submit" class="btn">注册</button>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls" id="msj-reset">
+						<button type="reset" class="btn" >重置</button>
 					</div>
 				</div>
 			</form>
 			</div>
-		</div>
-	</div>
 </div>
 
 

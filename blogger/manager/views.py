@@ -38,7 +38,7 @@ def deal_add_article(request):
 @permission_required('django.contrib.auth.can_manage')
 def del_article(request):
     article_id = request.GET["id"]
-    article = Article.objects.filter(id = article_id)
+    article = Article.objects.get(id = article_id)
     article.delete()
     return HttpResponseRedirect("/manager/article_list/")
 
@@ -51,7 +51,8 @@ def manage_article(request):
 
 @permission_required('django.contrib.auth.can_manage')
 def mod_article(request):
-	article_id = request.GET["id"]
+	article_id =request.GET["id"]
+        print article_id
 	article = Article.objects.get(id = article_id)
 	return render(request,"manager/mod_article.html",{"article":article})
 

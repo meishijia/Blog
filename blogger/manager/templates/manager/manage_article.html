@@ -1,29 +1,25 @@
 {% extends "manager/base.html" %}
 
-{% block title %}管理{% endblock %}
+{% block title %}管理文章和评论{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
 	<div class="row-fluid" style="margin-bottom:15px">
-		<div class="span8">
+		<div class="span12">
 			<h2>{{ article.title }}</h2>
 			<p>	{{ article.content }}</p>
 		</div>
-		<div class="span4" style="padding-top:10px">
-			<ul class="nav nav-list">
-				<li class="active">
-					<a href="/manager/article_list/">全部文章</a>
-				</li>
-				<li>
-				<a href="/manager/mod_article/?id={{article.id}}">修改文章</a>
-				</li>
-				<li>
-					<a href="/manager/add_article/">添加文章</a>
-				</li>
-				<li>
-				<a href="/manager/del_article/?id={{article.id}}">删除文章</a>
-				</li>
-			</ul>
+		<div class="span12">
+			<div class="span6">
+				<a class="btn btn-block btn-info" href="/manager/mod_article/?id={{ article.id }}">
+					修改文章
+				</a>
+			</div>
+			<div class="span6">
+				<a class="btn btn-block btn-warning" href="/manager/del_article/?id={{ article.id }}">
+					删除文章
+				</a>
+			</div>
 		</div>
 	</div>
 	<h3>评论</h3>

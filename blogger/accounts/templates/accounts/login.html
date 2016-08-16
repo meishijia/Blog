@@ -29,10 +29,11 @@
 				<fieldset>
 					<legend>登录</legend>
 				{% csrf_token %}
+				<p> <font color="#0088f0">{{message}} </font></p>
 				<div class="control-group">
 					 <label class="control-label" for="inputUsername">用户名</label>
 					<div class="controls">
-						<input id="inputUsername" type="text" name="username"i/>
+						<input id="inputUsername" type="text" name="username"/>
 					</div>
 				</div>
 				<div class="control-group">

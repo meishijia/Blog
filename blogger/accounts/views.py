@@ -34,14 +34,17 @@ def register(request):
 
 def deal_register(request):
     try:
+        message = ""
         username = request.POST["username"]
         password = request.POST["password"]
         email = request.POST["email"]
         user = User.objects.create_user(username,email,password)
         user.save()
+        message = "welcome!"
+        print message
     except:
         print traceback.print_exc()
-    return render(request,'accounts/login.html')
+    return render(request,'accounts/login.html',{"message":message})
 
 
 

@@ -2,11 +2,15 @@
 
 {% block title %} 添加博文 {% endblock %}
 
+{% block cssstyle %}
+{% endblock %}
+
+
 {% block content %}
 
 <div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span12" style="width:100%;margin-left:50px;margin-top:50px">
+		<div class="span12" style="width:100%;margin-left:-100px;margin-top:5px">
 			<form class="form-horizontal" method="post" action="/manager/deal_mod_article/">
 				{% csrf_token %}
 				<input type="hidden" value="{{article.id}}" name = "article_id"/>
